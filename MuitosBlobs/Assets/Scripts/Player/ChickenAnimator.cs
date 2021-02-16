@@ -5,6 +5,7 @@ using UnityEngine;
 public class ChickenAnimator : MonoBehaviour
 {
     private SpriteRenderer chickenSprite;
+    private bool isEnemy;
 
     private void Start()
     {
@@ -18,9 +19,12 @@ public class ChickenAnimator : MonoBehaviour
 
     private void FlipSprite()
     {
-        Vector2 mouseWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        Vector2 lookTo;
+        if (!isEnemy)
+            lookTo = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        else lookTo = Vector2.zero;
 
-        chickenSprite.flipX = mouseWorldPos.x < transform.position.x;
+        chickenSprite.flipX = lookTo.x < transform.position.x;
     }
 
     public void DoSqueeze(float xSqueeze, float ySqueeze, float seconds)

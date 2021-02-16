@@ -6,6 +6,8 @@ using UnityEngine;
 public class FakeHeight : MonoBehaviour
 {
     [Header ("Transforms")]
+    [SerializeField] private Transform chickenManager;
+
     [SerializeField] private Transform transformObject;
     [SerializeField] private Transform transformBody;
     [SerializeField] private Transform transformShadow;
@@ -19,19 +21,14 @@ public class FakeHeight : MonoBehaviour
     private Vector2 groundVelocity;
 
     [Header("Animation")]
-    private bool isGrounded;
     private Animator animator;
-    [SerializeField] private GameObject chickenSprite;
     private ChickenAnimator chickenAnimator;
-    
 
+    private bool isGrounded;
+
+
+    private LifeManager lifeManager;
     private MousePosition mousePositionScript;
-
-   
-    
-
-
-
 
     private void Start()
     {
@@ -40,6 +37,9 @@ public class FakeHeight : MonoBehaviour
 
         animator = GetComponentInChildren<Animator>();
         chickenAnimator = GetComponentInChildren<ChickenAnimator>();
+
+        lifeManager = GetComponentInChildren<LifeManager>();
+        lifeManager.SetInvincibility(1f);
     }
 
     private void Update()
@@ -59,13 +59,11 @@ public class FakeHeight : MonoBehaviour
             verticalVelocity += gravity * Time.deltaTime;
             transformBody.position += new Vector3(0, verticalVelocity, 0) * Time.deltaTime;
         }
-
-
     }
 
     public void JumpTo(Vector2 _groundVelocity, float _verticalVelocity)
     {
-        chickenAnimator.DoSqueeze(0.3f, 1.6f, 0.1f);
+        chickenAnimator.DoSqueeze(0.5f, 1.4f, 0.1f);
 
         groundVelocity = _groundVelocity; 
         verticalVelocity = _verticalVelocity;
@@ -74,18 +72,20 @@ public class FakeHeight : MonoBehaviour
     
     private void MouseClick(Vector2 mousePos)
     {
-        isGrounded = false;
-        //animator.Play("ChickenJump");
+        if (isGrounded)
+        {
+            isGrounded = false;
+            //animator.Play("ChickenJump");
 
-        Vector2 jumpDirection =  mousePos - (Vector2) transformObject.position;
-        float distanceMouseToChicken = Vector2.Distance(mousePos, transformObject.position); // algum jeito de pegar essa distancia e regular com o jumpVelocity
-        
-        print("distance mouse - position: " + distanceMouseToChicken);
-        print("new jump velocity: " + distanceMouseToChicken * jumpVelocity);
+            Vector2 jumpDirection = mousePos - (Vector2)transformObject.position;
+            float distanceMouseToChicken = Vector2.Distance(mousePos, transformObject.position); // algum jeito de pegar essa distancia e regular com o jumpVelocity
 
-        jumpDirection.Normalize();
 
-        JumpTo(jumpDirection * moveSpeed, jumpVelocity);
+            jumpDirection.Normalize();
+
+            JumpTo(jumpDirection * moveSpeed, jumpVelocity);
+        }
+        else return;
     }
 
     private void CheckGroundHit()
@@ -93,7 +93,7 @@ public class FakeHeight : MonoBehaviour
         if (transformBody.position.y < transformObject.position.y && !isGrounded)
         {
             isGrounded = true;
-            chickenAnimator.DoSqueeze(1.45f, 0.45f, 0.08f);
+            chickenAnimator.DoSqueeze(1.34f, 0.6f, 0.06f);
             animator.Play("ChickenIdle");
         }
     }
