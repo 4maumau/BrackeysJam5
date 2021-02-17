@@ -14,6 +14,7 @@ public class LifeManager : MonoBehaviour
     public UnityEvent OnDeathEvent;
 
     [SerializeField] private bool isChicken;
+    
 
     void Start()
     {

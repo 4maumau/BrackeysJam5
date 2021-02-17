@@ -1,40 +1,19 @@
 fileFormatVersion: 2
-guid: 8cdb82565afe56d4fab83a1f749b6133
+guid: 5b202b852a41ff445b4965c4bbf59bfd
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 5611055899358359725
-    second: CHICKEN_JUMP_SPRITE_0
+      213: 8648068470946046924
+    second: DINO_SPAWN_SPRITE_0
   - first:
-      213: 320424374327770975
-    second: CHICKEN_JUMP_SPRITE_1
+      213: -5643188144757989477
+    second: DINO_SPAWN_SPRITE_1
   - first:
-      213: 7392440052671003952
-    second: CHICKEN_JUMP_SPRITE_2
+      213: 5886418959404978891
+    second: DINO_SPAWN_SPRITE_2
   - first:
-      213: 7106004448254036503
-    second: CHICKEN_JUMP_SPRITE_3
-  - first:
-      213: 3277088442781393207
-    second: CHICKEN_JUMP_SPRITE_4
-  - first:
-      213: 3247253480382789455
-    second: CHICKEN_JUMP_SPRITE_5
-  - first:
-      213: 9209663476130106679
-    second: CHICKEN_JUMP_SPRITE_6
-  - first:
-      213: -5020948474814740269
-    second: CHICKEN_JUMP_SPRITE_7
-  - first:
-      213: 6906182291691347158
-    second: CHICKEN_JUMP_SPRITE_8
-  - first:
-      213: 4659140708599377964
-    second: CHICKEN_JUMP_SPRITE_9
-  - first:
-      213: -1604999727856356536
-    second: CHICKEN_JUMP_SPRITE_10
+      213: -7675507058902175111
+    second: DINO_SPAWN_SPRITE_3
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -144,13 +123,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: CHICKEN_JUMP_SPRITE_0
+      name: DINO_SPAWN_SPRITE_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 16
-        height: 16
+        width: 24
+        height: 24
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -158,20 +137,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: da07d10ac997edd40800000000000000
-      internalID: 5611055899358359725
+      spriteID: cc3aef3747c140870800000000000000
+      internalID: 8648068470946046924
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: CHICKEN_JUMP_SPRITE_1
+      name: DINO_SPAWN_SPRITE_1
       rect:
         serializedVersion: 2
-        x: 16
+        x: 24
         y: 0
-        width: 16
-        height: 16
+        width: 24
+        height: 24
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -179,41 +158,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f5ffe215540627400800000000000000
-      internalID: 320424374327770975
+      spriteID: b9f110ff74e5fa1b0800000000000000
+      internalID: -5643188144757989477
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: CHICKEN_JUMP_SPRITE_2
-      rect:
-        serializedVersion: 2
-        x: 32
-        y: 0
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 03d33d2af09379660800000000000000
-      internalID: 7392440052671003952
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: CHICKEN_JUMP_SPRITE_3
+      name: DINO_SPAWN_SPRITE_2
       rect:
         serializedVersion: 2
         x: 48
         y: 0
-        width: 16
-        height: 16
+        width: 24
+        height: 24
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -221,20 +179,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 71a078e75699d9260800000000000000
-      internalID: 7106004448254036503
+      spriteID: bc255722bd2c0b150800000000000000
+      internalID: 5886418959404978891
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: CHICKEN_JUMP_SPRITE_4
+      name: DINO_SPAWN_SPRITE_3
       rect:
         serializedVersion: 2
-        x: 64
+        x: 72
         y: 0
-        width: 16
-        height: 16
+        width: 24
+        height: 24
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -242,29 +200,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 731e581739e8a7d20800000000000000
-      internalID: 3277088442781393207
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: CHICKEN_JUMP_SPRITE_5
-      rect:
-        serializedVersion: 2
-        x: 80
-        y: 0
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: f47fdd1f5df801d20800000000000000
-      internalID: 3247253480382789455
+      spriteID: 972f12b1ffe1b7590800000000000000
+      internalID: -7675507058902175111
       vertices: []
       indices: 
       edges: []

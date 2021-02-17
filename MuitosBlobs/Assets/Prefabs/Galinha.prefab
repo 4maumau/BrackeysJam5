@@ -309,6 +309,7 @@ GameObject:
   - component: {fileID: 7442102778141378677}
   - component: {fileID: 7442102778141378681}
   - component: {fileID: 5459025223888417996}
+  - component: {fileID: 5045274737662570666}
   m_Layer: 8
   m_Name: Galinha
   m_TagString: Chicken
@@ -383,6 +384,8 @@ MonoBehaviour:
   moveSpeed: 10
   jumpVelocity: 12
   gravity: -50
+  verticalVelocity: 0
+  isGrounded: 0
 --- !u!114 &5459025223888417996
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -400,3 +403,15 @@ MonoBehaviour:
   targetTag: Enemy
   range: 10
   fireRate: 1
+--- !u!114 &5045274737662570666
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7442102778141378680}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 10b3a7b8e29c1854586dd9e710531d99, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

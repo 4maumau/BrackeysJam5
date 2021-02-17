@@ -17,14 +17,14 @@ public class FakeHeight : MonoBehaviour
     [SerializeField] private float moveSpeed = 10;
     [SerializeField] private float jumpVelocity;
     [SerializeField] private float gravity;
-    private float verticalVelocity;
+    public float verticalVelocity;
     private Vector2 groundVelocity;
 
     [Header("Animation")]
     private Animator animator;
-    private ChickenAnimator chickenAnimator;
+    private EntityAnimator entityAnimator;
 
-    private bool isGrounded;
+    public bool isGrounded = true;
 
 
     private LifeManager lifeManager;
@@ -36,7 +36,7 @@ public class FakeHeight : MonoBehaviour
         mousePositionScript.OnMouseClick.AddListener(MouseClick);
 
         animator = GetComponentInChildren<Animator>();
-        chickenAnimator = GetComponentInChildren<ChickenAnimator>();
+        entityAnimator = GetComponentInChildren<EntityAnimator>();
 
         lifeManager = GetComponentInChildren<LifeManager>();
         lifeManager.SetInvincibility(1f);
@@ -63,7 +63,7 @@ public class FakeHeight : MonoBehaviour
 
     public void JumpTo(Vector2 _groundVelocity, float _verticalVelocity)
     {
-        chickenAnimator.DoSqueeze(0.5f, 1.4f, 0.1f);
+        //entityAnimator.DoSqueeze(0.5f, 1.4f, 0.1f);
 
         groundVelocity = _groundVelocity; 
         verticalVelocity = _verticalVelocity;
@@ -93,8 +93,8 @@ public class FakeHeight : MonoBehaviour
         if (transformBody.position.y < transformObject.position.y && !isGrounded)
         {
             isGrounded = true;
-            chickenAnimator.DoSqueeze(1.34f, 0.6f, 0.06f);
-            animator.Play("ChickenIdle");
+            //entityAnimator.DoSqueeze(1.34f, 0.6f, 0.06f);
+            animator.Play("ChickenGroundHit");
         }
     }
 

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ChickenAnimator : MonoBehaviour
+public class EntityAnimator : MonoBehaviour
 {
     private SpriteRenderer chickenSprite;
     private bool isEnemy;

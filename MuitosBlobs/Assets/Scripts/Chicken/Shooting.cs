@@ -16,11 +16,11 @@ public class Shooting : MonoBehaviour
 
 
 
-    private ChickenAnimator chickenAnimator;
+    private EntityAnimator chickenAnimator;
 
     void Start()
     {
-        chickenAnimator = GetComponentInChildren<ChickenAnimator>();
+        chickenAnimator = GetComponentInChildren<EntityAnimator>();
 
         InvokeRepeating("UpdateTarget", 0f, 0.5f);
     }

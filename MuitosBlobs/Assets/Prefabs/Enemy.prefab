@@ -14,7 +14,6 @@ GameObject:
   - component: {fileID: 2327139041998198269}
   - component: {fileID: 2327139041998198270}
   - component: {fileID: 70518935}
-  - component: {fileID: 3720650666909196888}
   m_Layer: 9
   m_Name: Enemy
   m_TagString: Enemy
@@ -64,7 +63,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.047049284, y: -0.05713141}
+  m_Offset: {x: -0.047049284, y: -0.05285728}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -75,7 +74,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.83196664, y: 0.8857372}
+  m_Size: {x: 1.0371246, y: 1.2362154}
   m_EdgeRadius: 0
 --- !u!50 &2327139041998198269
 Rigidbody2D:
@@ -114,7 +113,7 @@ MonoBehaviour:
   OnDeathEvent:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 3720650666909196888}
+      - m_Target: {fileID: 5993159533548585205}
         m_MethodName: OnDeath
         m_Mode: 1
         m_Arguments:
@@ -143,19 +142,6 @@ MonoBehaviour:
   targetTag: Chicken
   range: 10
   fireRate: 1
---- !u!114 &3720650666909196888
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2327139041998198265}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 06514d7699c9c974dbe53c8e5a2cfd42, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  eggPrefab: {fileID: 29583669945764915, guid: 9c8be69bd65a2c843920e4cecb36bea7, type: 3}
 --- !u!1 &2327139042516868204
 GameObject:
   m_ObjectHideFlags: 0
@@ -166,7 +152,9 @@ GameObject:
   m_Component:
   - component: {fileID: 2327139042516868205}
   - component: {fileID: 2327139042516868206}
+  - component: {fileID: 4646309900277240251}
   - component: {fileID: 2632982506228618036}
+  - component: {fileID: 5993159533548585205}
   m_Layer: 9
   m_Name: EnemySprite
   m_TagString: Untagged
@@ -227,9 +215,9 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 3247253480382789455, guid: 8cdb82565afe56d4fab83a1f749b6133,
+  m_Sprite: {fileID: 4868525181068562198, guid: f17c940549802a04f83f29079352cfbd,
     type: 3}
-  m_Color: {r: 0.8207547, g: 0.18970275, b: 0.18970275, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -239,6 +227,25 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &4646309900277240251
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2327139042516868204}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: f6edf5bf92da3744eb16a0b40bb99c8c, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &2632982506228618036
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -251,3 +258,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1d116e5600fb104fbcb87a107dffc3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &5993159533548585205
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2327139042516868204}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 06514d7699c9c974dbe53c8e5a2cfd42, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eggPrefab: {fileID: 29583669945764915, guid: 9c8be69bd65a2c843920e4cecb36bea7, type: 3}

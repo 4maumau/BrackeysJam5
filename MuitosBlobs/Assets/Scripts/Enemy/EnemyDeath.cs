@@ -5,14 +5,23 @@ using UnityEngine;
 
 public class EnemyDeath : MonoBehaviour
 {
-    
+    private Animator animator;
     [SerializeField] private GameObject eggPrefab;
-        
+
+    private void Start()
+    {
+        animator = GetComponent<Animator>(); 
+    }
+
     public void OnDeath()
     {
-        // play death animation
+        animator.Play("DinoDeath");
+    }
+
+    public void OnDinoAnimationEnd()
+    {
         if (Random.value > 0.73)
             Instantiate(eggPrefab, transform.position, Quaternion.identity);
-        Destroy(gameObject);
+        Destroy(transform.root.gameObject);
     }
 }
