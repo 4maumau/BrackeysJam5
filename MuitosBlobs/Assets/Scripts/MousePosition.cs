@@ -12,6 +12,8 @@ public class MouseClickEvent : UnityEvent<Vector2>
 public class MousePosition : MonoBehaviour
 {
     public MouseClickEvent OnMouseClick;
+    public MouseClickEvent OnShootClick;
+
     
     public Vector2 mouseWorldPosition;
 
@@ -30,11 +32,11 @@ public class MousePosition : MonoBehaviour
         
         mouseWorldPosition = Camera.main.ScreenToWorldPoint(mousePos);
 
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(1))
         {
             OnMouseClick?.Invoke(mouseWorldPosition);
         }
-        
+                
     }
 
     void Ping(Vector2 pos)

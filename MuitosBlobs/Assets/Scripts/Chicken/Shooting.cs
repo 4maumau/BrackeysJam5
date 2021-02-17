@@ -16,17 +16,22 @@ public class Shooting : MonoBehaviour
 
 
 
-    private EntityAnimator chickenAnimator;
+    private EntityAnimator entityAnimator;
 
     void Start()
     {
-        chickenAnimator = GetComponentInChildren<EntityAnimator>();
+        entityAnimator = GetComponentInChildren<EntityAnimator>();
 
         InvokeRepeating("UpdateTarget", 0f, 0.5f);
     }
 
     // Update is called once per frame
     void Update()
+    {
+        FireCountdown();
+    }
+
+    private void FireCountdown()
     {
         if (fireCountdown <= 0 && target != null)
         {
@@ -37,11 +42,12 @@ public class Shooting : MonoBehaviour
         fireCountdown -= Time.deltaTime;
     }
 
+
     private void Shoot()
     {
-        chickenAnimator.DoSqueeze(1.34f, 0.65f, 0.06f);
+        entityAnimator.DoSqueeze(1.34f, 0.65f, 0.06f);
         GameObject bullet = Instantiate(bulletPrefab, transform.position, Quaternion.identity);
-        bullet.GetComponent<Bullet>().Seek(target, targetTag);
+        bullet.GetComponent<Bullet>().Seek(target.position, targetTag);
     }
 
     void UpdateTarget()

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    private Transform target;
+    private Vector2 target;
     private string targetTag;
     [SerializeField] private float speed = 10f;
     [SerializeField] private int  damage = 1;
@@ -15,7 +15,7 @@ public class Bullet : MonoBehaviour
     {
         Destroy(gameObject, 2f);
         if (target != null)
-            direction = target.position - transform.position;
+            direction = target - (Vector2) transform.position;
     }
 
     // Update is called once per frame
@@ -28,7 +28,7 @@ public class Bullet : MonoBehaviour
         // transform.position += Vector3.right * 10 * Time.deltaTime;
     }
 
-    public void Seek(Transform _target, string tag)
+    public void Seek(Vector2 _target, string tag)
     {
         targetTag = tag;
         target = _target;

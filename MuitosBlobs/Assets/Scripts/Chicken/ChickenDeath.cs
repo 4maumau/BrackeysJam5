@@ -5,18 +5,24 @@ using UnityEngine;
 public class ChickenDeath : MonoBehaviour
 {
     private Animator animator;
-    private bool isDead;
     private FakeHeight jumpScript;
+
+    private MultipleTargetCamera multiCamera;
 
     private void Start()
     {
         animator = GetComponent<Animator>();
         jumpScript = GetComponentInParent<FakeHeight>();
+
+        multiCamera = FindObjectOfType<MultipleTargetCamera>();
+
+        multiCamera.targets.Add(transform.root);
     }
 
     public void OnDeath()
     {
         jumpScript.enabled = false;
+        multiCamera.targets.Remove(transform.root);
         animator.Play("ChickenDeath");
         
     }

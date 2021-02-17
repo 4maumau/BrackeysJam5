@@ -5,7 +5,7 @@ using UnityEngine;
 public class EntityAnimator : MonoBehaviour
 {
     private SpriteRenderer chickenSprite;
-    private bool isEnemy;
+    public bool isEnemy;
 
     private void Start()
     {
