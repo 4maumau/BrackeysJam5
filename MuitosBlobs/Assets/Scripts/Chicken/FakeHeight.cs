@@ -6,7 +6,6 @@ using UnityEngine;
 public class FakeHeight : MonoBehaviour
 {
     [Header ("Transforms")]
-    [SerializeField] private Transform chickenManager;
 
     [SerializeField] private Transform transformObject;
     [SerializeField] private Transform transformBody;

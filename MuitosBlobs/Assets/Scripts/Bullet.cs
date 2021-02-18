@@ -13,7 +13,7 @@ public class Bullet : MonoBehaviour
 
     void Start()
     {
-        Destroy(gameObject, 2f);
+        Destroy(gameObject, 5f);
         if (target != null)
             direction = target - (Vector2) transform.position;
     }

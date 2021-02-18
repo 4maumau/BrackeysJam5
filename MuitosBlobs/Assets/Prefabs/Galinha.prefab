@@ -379,7 +379,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7cbf9dc2b247144dad593567f7ab654, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  chickenManager: {fileID: 0}
   transformObject: {fileID: 7442102778141378683}
   transformBody: {fileID: 7442102777100853146}
   transformShadow: {fileID: 7442102777031070782}
@@ -395,7 +394,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7442102778141378680}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c4f6fb0f219163948b91866d5cfb8745, type: 3}
   m_Name: 
@@ -404,7 +403,7 @@ MonoBehaviour:
     type: 3}
   targetTag: Enemy
   range: 10
-  fireRate: 1
+  fireRate: 2
 --- !u!114 &5045274737662570666
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -424,12 +423,11 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7442102778141378680}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 30fb425151362e145b72f735613d936b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 9140355319789542583, guid: 8d24b3cd43ec1f7419fdb9ec710cc250,
     type: 3}
-  range: 10
   fireRate: 3
