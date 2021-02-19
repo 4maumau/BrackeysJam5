@@ -29,6 +29,8 @@ public class FakeHeight : MonoBehaviour
     private LifeManager lifeManager;
     private MousePosition mousePositionScript;
 
+    private ParticleSystem groundHitParticle;
+
     private void Start()
     {
         mousePositionScript = FindObjectOfType<MousePosition>();
@@ -39,6 +41,8 @@ public class FakeHeight : MonoBehaviour
 
         lifeManager = GetComponentInChildren<LifeManager>();
         lifeManager.SetInvincibility(1f);
+
+        groundHitParticle = GetComponentInChildren<ParticleSystem>();
     }
 
     private void Update()
@@ -94,6 +98,7 @@ public class FakeHeight : MonoBehaviour
             isGrounded = true;
             //entityAnimator.DoSqueeze(1.34f, 0.6f, 0.06f);
             animator.Play("ChickenGroundHit");
+            groundHitParticle.Emit(1);
         }
     }
 

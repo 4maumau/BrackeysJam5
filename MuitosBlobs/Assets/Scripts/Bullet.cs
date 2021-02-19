@@ -41,6 +41,7 @@ public class Bullet : MonoBehaviour
             LifeManager lifeManager = collision.gameObject.GetComponent<LifeManager>();
             lifeManager.TakeDamage(damage);
 
+            ScreenShakeController.instance.AddTrauma(.08f);
             //plays explosion particle
             Destroy(gameObject);
         }

@@ -24,7 +24,8 @@ public class ChickenDeath : MonoBehaviour
         jumpScript.enabled = false;
         multiCamera.targets.Remove(transform.root);
         animator.Play("ChickenDeath");
-        
+        ScreenShakeController.instance.AddTrauma(.1f);
+
     }
 
     public void OnAnimationEnd()
