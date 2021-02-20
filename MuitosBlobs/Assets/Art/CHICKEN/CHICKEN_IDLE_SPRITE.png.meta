@@ -8,6 +8,12 @@ TextureImporter:
   - first:
       213: 4230311422411286345
     second: CHICKEN_IDLE_SPRITE_1
+  - first:
+      213: -4878904876721139130
+    second: CHICKEN_IDLE_SPRITE_2
+  - first:
+      213: 8216765909067515486
+    second: CHICKEN_IDLE_SPRITE_3
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -154,6 +160,48 @@ TextureImporter:
       bones: []
       spriteID: 9472a1653d515ba30800000000000000
       internalID: 4230311422411286345
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CHICKEN_IDLE_SPRITE_2
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6429d1a3dd5aa4cb0800000000000000
+      internalID: -4878904876721139130
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CHICKEN_IDLE_SPRITE_3
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e56428c5f01d70270800000000000000
+      internalID: 8216765909067515486
       vertices: []
       indices: 
       edges: []

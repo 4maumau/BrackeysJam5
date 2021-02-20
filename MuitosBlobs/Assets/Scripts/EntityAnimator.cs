@@ -7,9 +7,13 @@ public class EntityAnimator : MonoBehaviour
     private SpriteRenderer chickenSprite;
     public bool isEnemy;
 
+    private EnemyFollow enemyFollow; 
+
     private void Start()
     {
         chickenSprite = GetComponent<SpriteRenderer>();
+        if (isEnemy)
+            enemyFollow = GetComponentInParent<EnemyFollow>();
     }
 
     private void Update()
@@ -22,7 +26,12 @@ public class EntityAnimator : MonoBehaviour
         Vector2 lookTo;
         if (!isEnemy)
             lookTo = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        else lookTo = Vector2.zero;
+        else
+        {
+            if (enemyFollow.target != null)
+                lookTo = enemyFollow.target.position;
+            else lookTo = Vector2.zero;
+        }
 
         chickenSprite.flipX = lookTo.x < transform.position.x;
     }

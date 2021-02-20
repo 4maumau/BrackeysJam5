@@ -20,7 +20,7 @@ public class EnemyDeath : MonoBehaviour
 
     public void OnDinoAnimationEnd()
     {
-        if (Random.value > 0.73)
+        if (Random.value > 0.61)
             Instantiate(eggPrefab, transform.position, Quaternion.identity);
         Destroy(transform.root.gameObject);
     }

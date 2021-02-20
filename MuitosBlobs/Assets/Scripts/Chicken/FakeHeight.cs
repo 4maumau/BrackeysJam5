@@ -97,6 +97,7 @@ public class FakeHeight : MonoBehaviour
         {
             isGrounded = true;
             //entityAnimator.DoSqueeze(1.34f, 0.6f, 0.06f);
+            ScreenShakeController.instance.AddTrauma(0.01f);
             animator.Play("ChickenGroundHit");
             groundHitParticle.Emit(1);
         }

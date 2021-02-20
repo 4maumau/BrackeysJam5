@@ -7,7 +7,7 @@ public class EnemyFollow : MonoBehaviour
     [SerializeField] private Transform enemyManager;
     [SerializeField] private float speed = -5;
 
-    private Transform target;
+    public Transform target;
 
 
     void Start()
