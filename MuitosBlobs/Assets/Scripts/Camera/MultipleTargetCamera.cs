@@ -17,6 +17,9 @@ public class MultipleTargetCamera : MonoBehaviour
     public float minZoom = 7f;
     public float zoomLimiter = 10f;
 
+    public Vector2 boundsMin;
+    public Vector2 boundsMax;
+
     private Camera cam;
 
 
@@ -44,6 +47,8 @@ public class MultipleTargetCamera : MonoBehaviour
         Vector3 newPosition = centerPoint + offset;
 
         transform.position = Vector3.SmoothDamp(transform.position, newPosition, ref velocity, smoothTime);
+
+        transform.position = new Vector3(Mathf.Clamp(transform.position.x, boundsMin.x, boundsMax.x), Mathf.Clamp(transform.position.y, boundsMin.y, boundsMax.y), transform.position.z);
     }
 
     private void Zoom()

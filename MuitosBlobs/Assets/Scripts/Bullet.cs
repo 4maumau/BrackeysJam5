@@ -1,37 +1,49 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Bullet : MonoBehaviour
+public class Bullet : MonoBehaviour, IPooledObject
 {
     private Vector2 target;
     private string targetTag;
     [SerializeField] private float speed = 10f;
     [SerializeField] private int  damage = 1;
 
+    public GameObject explosionPrefab;
+
     Vector2 direction;
 
-    void Start()
+    public void OnObjectSpawn()
     {
-        Destroy(gameObject, 3f);
-        if (target != null)
-            direction = target - (Vector2) transform.position;
+        Invoke("DeactivateObject", 3f);
+
+        
     }
 
-    // Update is called once per frame
     void Update()
     {
                
         float distanceThisFrame = speed * Time.deltaTime;
 
         transform.Translate(direction.normalized * distanceThisFrame, Space.World);
-        // transform.position += Vector3.right * 10 * Time.deltaTime;
+        
     }
 
     public void Seek(Vector2 _target, string tag)
     {
         targetTag = tag;
         target = _target;
+
+        if (target != null)
+            direction = target - (Vector2)transform.position;
+
+    }
+
+    private void NotStart()
+    {
+        if (target != null)
+            direction = target - (Vector2)transform.position;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -41,9 +53,16 @@ public class Bullet : MonoBehaviour
             LifeManager lifeManager = collision.gameObject.GetComponent<LifeManager>();
             lifeManager.TakeDamage(damage);
 
-            ScreenShakeController.instance.AddTrauma(.08f);
-            //plays explosion particle
-            Destroy(gameObject);
+            ScreenShakeController.instance.AddTrauma(.1f);
+            GameObject explosion = Instantiate(explosionPrefab, transform.position, Quaternion.identity);
+            Destroy(explosion, 1);
+            //Destroy(gameObject);
+            DeactivateObject();
         }
+    }
+
+    private void DeactivateObject()
+    {
+        gameObject.SetActive(false);
     }
 }

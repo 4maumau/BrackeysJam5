@@ -72,7 +72,7 @@ public class ScreenShakeController : MonoBehaviour
 
     public void AddTrauma(float _trauma)
     {
-        if (trauma < .35f)
+        if (trauma < .3f)
             trauma += _trauma;
     }
 }
