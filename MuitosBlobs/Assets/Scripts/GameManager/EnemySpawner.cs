@@ -25,10 +25,8 @@ public class EnemySpawner : MonoBehaviour
     
     void Start()
     {
-        print("me chamaram");
-
-        waveCounter++;
-        currentWave = waves[waveCounter - 1];
+        waveCounter = 0;
+        currentWave = waves[waveCounter];
 
         Invoke("StartSpawner", 10f);
 
@@ -42,6 +40,7 @@ public class EnemySpawner : MonoBehaviour
         if (!hasStarted)
         {
             StartCoroutine(Spawner());
+
             hasStarted = true;
         }
     }
@@ -54,7 +53,6 @@ public class EnemySpawner : MonoBehaviour
     IEnumerator Spawner()
     {
         yield return new WaitForSeconds(5);
-        print("quem chamou????" + gameObject.name);
 
         while (true)
         {
@@ -74,7 +72,7 @@ public class EnemySpawner : MonoBehaviour
                 }
                 yield return new WaitForSeconds(0.5f);
             }
-            // should spawn here the number of bomb enemies; 
+            // spawns bomb enemies; 
             for (int i = 0; i < currentWave.bombEnemiesInWave; i++)
             {
                 Vector2 spawnPosition = GetSpawnPosition();
@@ -102,12 +100,12 @@ public class EnemySpawner : MonoBehaviour
 
     private void SetWave()
     {
-        
+
         if (currentWave.timesToSpawn < 0)
         {
             waveCounter++;
-            if (waveCounter - 1 < waves.Length)
-                currentWave = waves[waveCounter - 1];
+            if (waveCounter < waves.Length)
+                currentWave = waves[waveCounter];
             else currentWave = waves[waves.Length - 1];
         }
 
@@ -116,6 +114,12 @@ public class EnemySpawner : MonoBehaviour
             currentWave.timeBetweenSpawns = 8;
         }
        
+    }
+
+    public void JumpToWave(int waveIndex)
+    {
+        currentWave = waves[waveIndex];
+        waveCounter = waveIndex;
     }
 
     [System.Serializable]

@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class Bomb : MonoBehaviour
 {
+    private Animator animator;
+    private CharacterAudio _audio;
+    
     [SerializeField] private float explosionRadius = 5f;
     [SerializeField] private float instaDeathRadius = 2f;
 
@@ -19,11 +22,17 @@ public class Bomb : MonoBehaviour
     private float countdown;
 
     private bool hasExploded = false;
+    public bool dropGoldenEgg = true;
+    [SerializeField] private GameObject goldenEggPrefab;
 
     private void Awake()
     {
         countdown = delay;
         particles = GetComponent<ReleaseParticles>();
+
+        animator = GetComponent<Animator>();
+        _audio = GetComponent<CharacterAudio>();
+        
     }
 
     private void Update()
@@ -34,6 +43,7 @@ public class Bomb : MonoBehaviour
         countdown -= Time.deltaTime;
         if (countdown <= 0f && !hasExploded)
         {
+            
             Explode();
             hasExploded = true;
         }
@@ -43,16 +53,18 @@ public class Bomb : MonoBehaviour
     {
         particles.EmitParticles();
         ScreenShakeController.instance.AddTrauma(screenShakePower);
-
+        animator.Play("BombExplosion");
+        _audio.PlaySound("Explosion");
 
         Collider2D[] colliders = Physics2D.OverlapCircleAll
             (transform.position, explosionRadius);
 
         foreach (Collider2D nearbyObject in colliders)
         {
+            
             if (nearbyObject.tag == "Chicken" || nearbyObject.tag == "Enemy")
             {
-                LifeManager lifeManager = nearbyObject.GetComponent<LifeManager>();
+                LifeManager lifeManager = nearbyObject.GetComponentInChildren<LifeManager>();
                 if (Vector2.Distance(transform.position, nearbyObject.transform.position) <= instaDeathRadius) // deveria dar dano nos inimigos tb?
                 {
                     lifeManager.TakeDamage(10);
@@ -70,13 +82,13 @@ public class Bomb : MonoBehaviour
                     
                 }
             }
-            else if (nearbyObject.tag == "Egg")
+            else if (nearbyObject.tag == "Egg" && Vector2.Distance(transform.position, nearbyObject.transform.position) <= instaDeathRadius) // só mata o ovo se estiver no raio de instadeath
             {
                 Destroy(nearbyObject.transform.parent.gameObject);
             }
         }
 
-        //Destroy(gameObject);
+        
     }
 
     private void KnockbackEnemy(Collider2D collision, Vector2 direction)
@@ -96,6 +108,15 @@ public class Bomb : MonoBehaviour
 
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, instaDeathRadius);
+    }
+
+    public void DestroySelf()
+    {
+        Destroy(gameObject);
+        if (dropGoldenEgg && Random.value > 0.8)
+        {
+            Instantiate(goldenEggPrefab, transform.position, Quaternion.identity);
+        }
     }
 
 }

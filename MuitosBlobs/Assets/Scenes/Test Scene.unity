@@ -296,6 +296,41 @@ PrefabInstance:
       propertyPath: m_Name
       value: EGG 1 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 2315449469888791096, guid: 96eaa6b80ee8fb14d8a61f5ea24a198c,
+        type: 3}
+      propertyPath: starterEgg
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2315449469888791096, guid: 96eaa6b80ee8fb14d8a61f5ea24a198c,
+        type: 3}
+      propertyPath: OnStarterEggPickup.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2315449469888791096, guid: 96eaa6b80ee8fb14d8a61f5ea24a198c,
+        type: 3}
+      propertyPath: OnStarterEggPickup.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2315449469888791096, guid: 96eaa6b80ee8fb14d8a61f5ea24a198c,
+        type: 3}
+      propertyPath: OnStarterEggPickup.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 519420035}
+    - target: {fileID: 2315449469888791096, guid: 96eaa6b80ee8fb14d8a61f5ea24a198c,
+        type: 3}
+      propertyPath: OnStarterEggPickup.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2315449469888791096, guid: 96eaa6b80ee8fb14d8a61f5ea24a198c,
+        type: 3}
+      propertyPath: OnStarterEggPickup.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: StartSpawner
+      objectReference: {fileID: 0}
+    - target: {fileID: 2315449469888791096, guid: 96eaa6b80ee8fb14d8a61f5ea24a198c,
+        type: 3}
+      propertyPath: OnStarterEggPickup.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 2315449469888791100, guid: 96eaa6b80ee8fb14d8a61f5ea24a198c,
         type: 3}
       propertyPath: m_ApplyRootMotion
@@ -2499,7 +2534,7 @@ PrefabInstance:
     - target: {fileID: 2327139041998198267, guid: d8c9feb76b4fc7a45b4c52b47338e830,
         type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 2327139041998198267, guid: d8c9feb76b4fc7a45b4c52b47338e830,
         type: 3}
@@ -2839,6 +2874,7 @@ GameObject:
   - component: {fileID: 294475449}
   - component: {fileID: 294475450}
   - component: {fileID: 294475451}
+  - component: {fileID: 294475452}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -2925,7 +2961,7 @@ MonoBehaviour:
   - tag: PlayerBullet
     prefab: {fileID: 9140355319789542583, guid: 8d24b3cd43ec1f7419fdb9ec710cc250,
       type: 3}
-    size: 200
+    size: 300
   - tag: EnemyBullet
     prefab: {fileID: 9140355319789542583, guid: 86a9ec4c73bb2da46b448313e2d99eab,
       type: 3}
@@ -2952,6 +2988,102 @@ MonoBehaviour:
   hordeNumber: {fileID: 2062408370}
   timesToSpawn: {fileID: 838932088}
   timeBetweenSpawns: {fileID: 816526118}
+--- !u!82 &294475452
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 294475446}
+  m_Enabled: 0
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: b91c7482b62680149b4e93c052a6b599, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 0.154
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 0
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &300744270
 GameObject:
   m_ObjectHideFlags: 0
@@ -5305,21 +5437,36 @@ MonoBehaviour:
     timeBetweenBombEnemies: 0.5
     timeBetweenSpawns: 10
     timesToSpawn: 6
-  - hordeNumber: 3
+  - hordeNumber: 4
     bombEnemiesInWave: 0
     timeBetweenBombEnemies: 0.5
     timeBetweenSpawns: 5
-    timesToSpawn: 3
+    timesToSpawn: 5
   - hordeNumber: 6
     bombEnemiesInWave: 0
     timeBetweenBombEnemies: 0.5
     timeBetweenSpawns: 6
-    timesToSpawn: 1
-  - hordeNumber: 1
-    bombEnemiesInWave: 0
+    timesToSpawn: 3
+  - hordeNumber: 0
+    bombEnemiesInWave: 1
     timeBetweenBombEnemies: 0.5
-    timeBetweenSpawns: 6
-    timesToSpawn: 1
+    timeBetweenSpawns: 9
+    timesToSpawn: 2
+  - hordeNumber: 0
+    bombEnemiesInWave: 3
+    timeBetweenBombEnemies: 2.5
+    timeBetweenSpawns: 7
+    timesToSpawn: 2
+  - hordeNumber: 5
+    bombEnemiesInWave: 2
+    timeBetweenBombEnemies: 2
+    timeBetweenSpawns: 10
+    timesToSpawn: 8
+  - hordeNumber: 8
+    bombEnemiesInWave: 4
+    timeBetweenBombEnemies: 3
+    timeBetweenSpawns: 10
+    timesToSpawn: 6
   currentWave:
     hordeNumber: 0
     bombEnemiesInWave: 0
@@ -10694,6 +10841,36 @@ PrefabInstance:
         type: 3}
       propertyPath: starterEgg
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2315449469888791096, guid: 96eaa6b80ee8fb14d8a61f5ea24a198c,
+        type: 3}
+      propertyPath: OnStarterEggPickup.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2315449469888791096, guid: 96eaa6b80ee8fb14d8a61f5ea24a198c,
+        type: 3}
+      propertyPath: OnStarterEggPickup.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2315449469888791096, guid: 96eaa6b80ee8fb14d8a61f5ea24a198c,
+        type: 3}
+      propertyPath: OnStarterEggPickup.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 519420035}
+    - target: {fileID: 2315449469888791096, guid: 96eaa6b80ee8fb14d8a61f5ea24a198c,
+        type: 3}
+      propertyPath: OnStarterEggPickup.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2315449469888791096, guid: 96eaa6b80ee8fb14d8a61f5ea24a198c,
+        type: 3}
+      propertyPath: OnStarterEggPickup.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: StartSpawner
+      objectReference: {fileID: 0}
+    - target: {fileID: 2315449469888791096, guid: 96eaa6b80ee8fb14d8a61f5ea24a198c,
+        type: 3}
+      propertyPath: OnStarterEggPickup.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 96eaa6b80ee8fb14d8a61f5ea24a198c, type: 3}
@@ -16096,7 +16273,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1368579850
 GameObject:
@@ -19324,6 +19501,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 149068369, guid: c898ff49977a72d46ad79903ee1a605d, type: 3}
+      propertyPath: sounds.Array.data[1].clips.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 162174497, guid: c898ff49977a72d46ad79903ee1a605d, type: 3}
       propertyPath: startHealth
       value: 2
@@ -23945,6 +24126,36 @@ PrefabInstance:
       propertyPath: starterEgg
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2315449469888791096, guid: 96eaa6b80ee8fb14d8a61f5ea24a198c,
+        type: 3}
+      propertyPath: OnStarterEggPickup.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2315449469888791096, guid: 96eaa6b80ee8fb14d8a61f5ea24a198c,
+        type: 3}
+      propertyPath: OnStarterEggPickup.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2315449469888791096, guid: 96eaa6b80ee8fb14d8a61f5ea24a198c,
+        type: 3}
+      propertyPath: OnStarterEggPickup.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 519420035}
+    - target: {fileID: 2315449469888791096, guid: 96eaa6b80ee8fb14d8a61f5ea24a198c,
+        type: 3}
+      propertyPath: OnStarterEggPickup.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2315449469888791096, guid: 96eaa6b80ee8fb14d8a61f5ea24a198c,
+        type: 3}
+      propertyPath: OnStarterEggPickup.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: StartSpawner
+      objectReference: {fileID: 0}
+    - target: {fileID: 2315449469888791096, guid: 96eaa6b80ee8fb14d8a61f5ea24a198c,
+        type: 3}
+      propertyPath: OnStarterEggPickup.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 2315449469888791100, guid: 96eaa6b80ee8fb14d8a61f5ea24a198c,
         type: 3}
       propertyPath: m_ApplyRootMotion
@@ -24583,7 +24794,7 @@ Transform:
   - {fileID: 1307812773}
   - {fileID: 1717003314}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2091993019
 GameObject:
@@ -25235,6 +25446,41 @@ PrefabInstance:
       propertyPath: m_Name
       value: EGG
       objectReference: {fileID: 0}
+    - target: {fileID: 2315449469888791096, guid: 96eaa6b80ee8fb14d8a61f5ea24a198c,
+        type: 3}
+      propertyPath: starterEgg
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2315449469888791096, guid: 96eaa6b80ee8fb14d8a61f5ea24a198c,
+        type: 3}
+      propertyPath: OnStarterEggPickup.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2315449469888791096, guid: 96eaa6b80ee8fb14d8a61f5ea24a198c,
+        type: 3}
+      propertyPath: OnStarterEggPickup.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2315449469888791096, guid: 96eaa6b80ee8fb14d8a61f5ea24a198c,
+        type: 3}
+      propertyPath: OnStarterEggPickup.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 519420035}
+    - target: {fileID: 2315449469888791096, guid: 96eaa6b80ee8fb14d8a61f5ea24a198c,
+        type: 3}
+      propertyPath: OnStarterEggPickup.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2315449469888791096, guid: 96eaa6b80ee8fb14d8a61f5ea24a198c,
+        type: 3}
+      propertyPath: OnStarterEggPickup.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: StartSpawner
+      objectReference: {fileID: 0}
+    - target: {fileID: 2315449469888791096, guid: 96eaa6b80ee8fb14d8a61f5ea24a198c,
+        type: 3}
+      propertyPath: OnStarterEggPickup.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 96eaa6b80ee8fb14d8a61f5ea24a198c, type: 3}
 --- !u!1001 &7442102777937902748
@@ -25329,7 +25575,7 @@ PrefabInstance:
     - target: {fileID: 8762280617283370554, guid: c3cf6ed739ac207428b726cb6e0ea5d3,
         type: 3}
       propertyPath: m_RootOrder
-      value: 13
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 8762280617283370554, guid: c3cf6ed739ac207428b726cb6e0ea5d3,
         type: 3}

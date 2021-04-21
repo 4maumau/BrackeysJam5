@@ -5104,6 +5104,7 @@ GameObject:
   - component: {fileID: 5045274737662570666}
   - component: {fileID: 1646541223}
   - component: {fileID: 1025070754}
+  - component: {fileID: 149068369}
   m_Layer: 8
   m_Name: Galinha
   m_TagString: Chicken
@@ -5179,6 +5180,7 @@ MonoBehaviour:
   gravity: -50
   verticalVelocity: 0
   isGrounded: 1
+  chickenAudio: {fileID: 149068369}
 --- !u!114 &5459025223888417996
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5242,3 +5244,53 @@ MonoBehaviour:
   xVelocityRange: {x: 3, y: 8}
   yVelocityRange: {x: 2, y: 5}
   amountRange: {x: 3, y: 7}
+--- !u!114 &149068369
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7442102778141378680}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa8255e75e28b3441a391f9717aa79f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioOn: 1
+  musicOn: 1
+  sounds:
+  - name: Spawn
+    clips:
+    - {fileID: 8300000, guid: 11b4d19cf95ac3648823d2226f711fb9, type: 3}
+    - {fileID: 8300000, guid: 7446ff4599ca7b44cb28b667f9925a0f, type: 3}
+    - {fileID: 8300000, guid: 7c533d95472ed97429c56f121eb658c8, type: 3}
+    volume: 1
+    volumeVariance: 0.3
+    pitch: 1
+    pitchVariance: 0.2
+    loop: 0
+    playOneShot: 0
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  - name: Death
+    clips:
+    - {fileID: 8300000, guid: d0ce91424cd97704cb21564afd02fa98, type: 3}
+    volume: 1
+    volumeVariance: 0.3
+    pitch: 1
+    pitchVariance: 0.2
+    loop: 0
+    playOneShot: 0
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  - name: Land
+    clips:
+    - {fileID: 8300000, guid: e826895ec52c84e43a7fd26e72efe1d1, type: 3}
+    volume: 0.634
+    volumeVariance: 0.139
+    pitch: 1
+    pitchVariance: 0.16
+    loop: 0
+    playOneShot: 0
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}

@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 2327139041998198270}
   - component: {fileID: 70518935}
   - component: {fileID: 3189467846046027961}
+  - component: {fileID: 4833412106824378153}
   m_Layer: 9
   m_Name: Enemy
   m_TagString: Enemy
@@ -54,11 +55,11 @@ MonoBehaviour:
   enemyManager: {fileID: 0}
   isAlive: 1
   speed: -5
+  knockbackFadeTime: 2
   maxSpeed: 5
   steerStrength: 27
   target: {fileID: 0}
   isBombEnemy: 0
-  knockbackFadeTime: 2
 --- !u!61 &2327139041998198268
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -180,6 +181,32 @@ MonoBehaviour:
   xVelocityRange: {x: 4, y: 6}
   yVelocityRange: {x: 2, y: 5}
   amountRange: {x: 3, y: 7}
+--- !u!114 &4833412106824378153
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2327139041998198265}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa8255e75e28b3441a391f9717aa79f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioOn: 1
+  musicOn: 1
+  sounds:
+  - name: Death
+    clips:
+    - {fileID: 8300000, guid: 1d9affe53db0aad40aad48f4255a6cab, type: 3}
+    volume: 0.552
+    volumeVariance: 0.3
+    pitch: 1.49
+    pitchVariance: 0.3
+    loop: 0
+    playOneShot: 0
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
 --- !u!1 &2327139042516868204
 GameObject:
   m_ObjectHideFlags: 0

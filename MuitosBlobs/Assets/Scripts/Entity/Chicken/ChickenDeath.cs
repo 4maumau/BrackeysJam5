@@ -9,10 +9,14 @@ public class ChickenDeath : MonoBehaviour
 
     private MultipleTargetCamera multiCamera;
 
+    private CharacterAudio chickenAudio;
+
     private void Start()
     {
         animator = GetComponent<Animator>();
         jumpScript = GetComponentInParent<Chicken>();
+        chickenAudio = GetComponentInParent<CharacterAudio>();
+
 
         multiCamera = FindObjectOfType<MultipleTargetCamera>();
 
@@ -24,6 +28,8 @@ public class ChickenDeath : MonoBehaviour
         jumpScript.enabled = false;
         multiCamera.targets.Remove(transform.root);
         animator.Play("ChickenDeath");
+        chickenAudio.PlaySound("Death");
+
         ScreenShakeController.instance.AddTrauma(.1f);
     }
 

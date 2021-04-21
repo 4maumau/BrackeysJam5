@@ -5,20 +5,37 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour, IPooledObject
 {
-    private Vector2 target;
-    private string targetTag;
+    private CharacterAudio _audio;
+
     [SerializeField] private float speed = 10f;
     [SerializeField] private int  damage = 1;
 
+    private string targetTag;
+    private Vector2 target;
+    private Vector2 direction;
+   
     public GameObject explosionPrefab;
 
-    Vector2 direction;
+    private bool notExploded = true;
+    private SpriteRenderer spriteRenderer;
+    private Sprite initialSprite;
+
+    private void Awake()
+    {
+        _audio = GetComponent<CharacterAudio>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        initialSprite = spriteRenderer.sprite;
+    }
+
 
     public void OnObjectSpawn()
     {
+        spriteRenderer.sprite = initialSprite;
+        print("current sprite: " + spriteRenderer.sprite);
         Invoke("DeactivateObject", 3f);
+        _audio.PlaySound("Shoot");
 
-        
+        notExploded = true;
     }
 
     void Update()
@@ -26,7 +43,8 @@ public class Bullet : MonoBehaviour, IPooledObject
                
         float distanceThisFrame = speed * Time.deltaTime;
 
-        transform.Translate(direction.normalized * distanceThisFrame, Space.World);
+        if(notExploded)
+            transform.Translate(direction.normalized * distanceThisFrame, Space.World);
         
     }
 
@@ -56,7 +74,7 @@ public class Bullet : MonoBehaviour, IPooledObject
             ScreenShakeController.instance.AddTrauma(.1f);
             GameObject explosion = Instantiate(explosionPrefab, transform.position, Quaternion.identity);
             Destroy(explosion, 1);
-            //Destroy(gameObject);
+            notExploded = false;
             DeactivateObject();
         }
     }

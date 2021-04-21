@@ -15,6 +15,8 @@ GameObject:
   - component: {fileID: 2327139041998198270}
   - component: {fileID: 3189467846046027961}
   - component: {fileID: 3109988830145772494}
+  - component: {fileID: 1973417319915061546}
+  - component: {fileID: 3288555603810061818}
   m_Layer: 9
   m_Name: BombEnemy
   m_TagString: Enemy
@@ -56,8 +58,8 @@ MonoBehaviour:
   isAlive: 1
   speed: 8
   knockbackFadeTime: 2
-  maxSpeed: 8
-  steerStrength: 9
+  maxSpeed: 7.6
+  steerStrength: 16
   target: {fileID: 0}
   isBombEnemy: 1
 --- !u!61 &2327139041998198268
@@ -176,6 +178,48 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   explosionRange: 1
+--- !u!114 &1973417319915061546
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2327139041998198265}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa8255e75e28b3441a391f9717aa79f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioOn: 1
+  musicOn: 1
+  sounds:
+  - name: Death
+    clips:
+    - {fileID: 8300000, guid: 1d9affe53db0aad40aad48f4255a6cab, type: 3}
+    volume: 0.552
+    volumeVariance: 0.3
+    pitch: 1.49
+    pitchVariance: 0.3
+    loop: 0
+    playOneShot: 0
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+--- !u!58 &3288555603810061818
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2327139041998198265}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 1
 --- !u!1 &2327139042516868204
 GameObject:
   m_ObjectHideFlags: 0
@@ -251,7 +295,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 4868525181068562198, guid: f17c940549802a04f83f29079352cfbd,
     type: 3}
-  m_Color: {r: 1, g: 0.2688679, b: 0.8146594, a: 1}
+  m_Color: {r: 1, g: 0, b: 0.26940823, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

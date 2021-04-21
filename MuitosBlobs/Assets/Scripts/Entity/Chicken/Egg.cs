@@ -10,6 +10,7 @@ public class Egg : MonoBehaviour
 
     public UnityEvent OnStarterEggPickup;
     [SerializeField] private bool starterEgg;
+    [SerializeField] private bool goldenEgg = false;
     private bool spawning = false;
 
     private int points = 50;
@@ -30,7 +31,7 @@ public class Egg : MonoBehaviour
 
                 if (starterEgg)
                 {
-                    FindObjectOfType<EnemySpawner>().StartSpawner();
+                    OnStarterEggPickup?.Invoke();
                 }
             }
         }
@@ -38,7 +39,27 @@ public class Egg : MonoBehaviour
 
     public void SpawnChicken()
     {
-        Instantiate(chickenPrefab, transform.position, Quaternion.identity);
+        if (goldenEgg)
+        {
+            GetComponent<SpriteRenderer>().enabled = false;
+            StartCoroutine("GoldenSpawn");
+        }
+        else
+        {
+            Instantiate(chickenPrefab, transform.position, Quaternion.identity);
+            Destroy(transform.parent.gameObject);   
+        }
+        
+    }
+
+    IEnumerator GoldenSpawn()
+    {
+        for (int i = 0; i < 10; i++)
+        {
+            Instantiate(chickenPrefab, transform.position, Quaternion.identity);
+            yield return new WaitForSeconds(0.07f);
+        }
+
         Destroy(transform.parent.gameObject);
     }
 

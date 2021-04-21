@@ -9,6 +9,7 @@ public class ContactExplosion : MonoBehaviour
 
     private Bomb bombChild;
     [SerializeField] private float explosionRange = 1f;
+    
 
     private void Start()
     {
@@ -21,6 +22,11 @@ public class ContactExplosion : MonoBehaviour
 
     private void Update()
     {
+        // OldMethod();
+    }
+
+    private void OldMethod()
+    {
         if (enemyFollow.target != null)
         {
             float distanceToTarget = Vector2.Distance(transform.position, enemyFollow.target.position);
@@ -31,11 +37,21 @@ public class ContactExplosion : MonoBehaviour
         }
     }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.tag == "Chicken")
+            ContactExplode();
+    }
+
     void ContactExplode()
     {
         enemyDeath.DontDropBomb();
+
+        bombChild.gameObject.GetComponent<SpriteRenderer>().enabled = true;
         bombChild.enabled = true;
+        bombChild.dropGoldenEgg = false;
         bombChild.Explode();
+        //bombChild.transform.parent = null;
     }
 
     private void OnDrawGizmos()

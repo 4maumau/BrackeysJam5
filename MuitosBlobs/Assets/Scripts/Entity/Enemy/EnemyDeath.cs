@@ -6,20 +6,28 @@ using UnityEngine;
 public class EnemyDeath : MonoBehaviour
 {
     private Animator animator;
+    private CharacterAudio _audio;
+    private EnemyFollow enemyFollow;
     [SerializeField] private GameObject dropPrefab;
     [SerializeField] private string deathAnimation = "DinoDeath";
     private bool dropBomb = true;
 
     private void Start()
     {
-        animator = GetComponent<Animator>(); 
+        animator = GetComponent<Animator>();
+        _audio = GetComponentInParent<CharacterAudio>();
+        enemyFollow = GetComponentInParent<EnemyFollow>();
     }
 
     public void OnDeath()
     {
         animator.Play(deathAnimation);
-       
-        GetComponentInParent<EnemyFollow>().isAlive = false;
+        if (enemyFollow.isAlive)
+        {
+            _audio.PlaySound("Death");
+            enemyFollow.isAlive = false;
+        }
+
     }
 
     public void OnBombEnemyAnimationEnd()
@@ -27,7 +35,6 @@ public class EnemyDeath : MonoBehaviour
         if (dropBomb)
         {
             Instantiate(dropPrefab, transform.position, Quaternion.identity);
-            print("called prefab");
         }
 
         GameManager.instance.AddScore(30);
@@ -36,7 +43,6 @@ public class EnemyDeath : MonoBehaviour
 
     public void DontDropBomb()
     {
-        print("called dont drop bomb");
         dropBomb = false;
     }
 
