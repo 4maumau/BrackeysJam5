@@ -83,7 +83,7 @@ public class VisualDebug : MonoBehaviour
 
         if (leftShift)
         {
-            print("left shift");
+
             if (Input.GetKeyDown("0"))
             {
                 enemySpawner.JumpToWave(0);

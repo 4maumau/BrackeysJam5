@@ -39,10 +39,6 @@ public class GameManager : MonoBehaviour
     }
     private void Start()
     {
-        if (PlayerPrefs.GetString("ShootingMode") == "Manual")
-        {
-            manualTut.SetActive(true);
-        }
         Invoke("DeactivateTutorial", 15f);
 
         if (PlayerPrefs.HasKey("HS"))
@@ -64,14 +60,10 @@ public class GameManager : MonoBehaviour
 
     void SetCursor()
     {
-        if (PlayerPrefs.GetString("ShootingMode") == "Auto")
-        {
-            Cursor.SetCursor(autoCursor, Vector2.zero, CursorMode.ForceSoftware);
-        }
-        else
-        {
-            Cursor.SetCursor(manualCursor, Vector2.zero, CursorMode.ForceSoftware);
-        }
+        
+        Cursor.SetCursor(autoCursor, Vector2.zero, CursorMode.ForceSoftware);
+        
+        
     }
 
     void DeactivateTutorial()

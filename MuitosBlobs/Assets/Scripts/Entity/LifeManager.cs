@@ -12,12 +12,16 @@ public class LifeManager : MonoBehaviour
     private float invincibleCountdown;
 
     public UnityEvent OnDeathEvent;
-    
-    
+
+    private SpriteRenderer bodySprite;
+    [SerializeField] private Color hurtColor;
+    [SerializeField] private float flashTime = 0.1f;
 
     void Start()
     {
-        health = startHealth; 
+        health = startHealth;
+
+        bodySprite = GetComponentInChildren<SpriteRenderer>();
     }
 
     // Update is called once per frame
@@ -40,7 +44,15 @@ public class LifeManager : MonoBehaviour
             health -= damage;
             if (health <= 0)
                 Die();
+            else StartCoroutine("FlashHit");
         }
+    }
+
+    IEnumerator FlashHit()
+    {
+        bodySprite.color = hurtColor;
+        yield return new WaitForSeconds(flashTime);
+        bodySprite.color = Color.white;
     }
 
     public void SetInvincibility(float seconds)
@@ -53,4 +65,6 @@ public class LifeManager : MonoBehaviour
     {
         OnDeathEvent?.Invoke();
     }
+
+
 }

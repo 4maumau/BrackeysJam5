@@ -32,7 +32,7 @@ public class EnemyFollow : MonoBehaviour
 
     void Start()
     {
-        InvokeRepeating("UpdateTarget", 0f, 0.5f);
+        InvokeRepeating("UpdateTarget", 0f, 0.25f);
         
 
         transform.parent = enemyManager;
@@ -113,7 +113,6 @@ public class EnemyFollow : MonoBehaviour
 
     public void AddKnockbackForce(Vector2 _knockbackForce)
     {
-        print("me chamaram");
         knockbackForce = _knockbackForce;
     }
 

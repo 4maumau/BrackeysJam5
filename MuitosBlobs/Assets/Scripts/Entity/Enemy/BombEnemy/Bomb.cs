@@ -5,13 +5,15 @@ using UnityEngine;
 public class Bomb : MonoBehaviour
 {
     private Animator animator;
-    private CharacterAudio _audio;
-    
+    private AudioSource audioSource;
+    [SerializeField] private AudioClip explosionClip;
+
     [SerializeField] private float explosionRadius = 5f;
     [SerializeField] private float instaDeathRadius = 2f;
 
     [Range(0f,1f)]
     [SerializeField] private float screenShakePower = .75f;
+    private RipplePostProcessor cameraRipple;
     private ReleaseParticles particles;
 
     [SerializeField] private float xKnockbackForce = 5f;
@@ -27,12 +29,16 @@ public class Bomb : MonoBehaviour
 
     private void Awake()
     {
-        countdown = delay;
         particles = GetComponent<ReleaseParticles>();
+        cameraRipple = FindObjectOfType<RipplePostProcessor>();
 
         animator = GetComponent<Animator>();
-        _audio = GetComponent<CharacterAudio>();
-        
+        audioSource = GetComponent<AudioSource>();
+    }
+
+    private void Start()
+    {
+        countdown = delay;
     }
 
     private void Update()
@@ -53,8 +59,10 @@ public class Bomb : MonoBehaviour
     {
         particles.EmitParticles();
         ScreenShakeController.instance.AddTrauma(screenShakePower);
+        cameraRipple.RippleEffect(transform.position);
+
         animator.Play("BombExplosion");
-        _audio.PlaySound("Explosion");
+        ExplodeAudio();
 
         Collider2D[] colliders = Physics2D.OverlapCircleAll
             (transform.position, explosionRadius);
@@ -82,13 +90,19 @@ public class Bomb : MonoBehaviour
                     
                 }
             }
-            else if (nearbyObject.tag == "Egg" && Vector2.Distance(transform.position, nearbyObject.transform.position) <= instaDeathRadius) // só mata o ovo se estiver no raio de instadeath
+            else if (nearbyObject.tag == "Egg") //&& Vector2.Distance(transform.position, nearbyObject.transform.position) <= instaDeathRadius) // só mata o ovo se estiver no raio de instadeath
             {
                 Destroy(nearbyObject.transform.parent.gameObject);
             }
         }
+    }
 
-        
+    void ExplodeAudio()
+    {
+        audioSource.Pause();
+        audioSource.clip = explosionClip;
+        audioSource.loop = false;
+        audioSource.Play();
     }
 
     private void KnockbackEnemy(Collider2D collision, Vector2 direction)

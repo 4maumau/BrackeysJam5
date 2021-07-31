@@ -2995,12 +2995,12 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 294475446}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: b91c7482b62680149b4e93c052a6b599, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.154
+  m_Volume: 0.078
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -5283,6 +5283,7 @@ GameObject:
   - component: {fileID: 519420033}
   - component: {fileID: 519420034}
   - component: {fileID: 519420035}
+  - component: {fileID: 519420036}
   m_Layer: 0
   m_Name: MainCamera
   m_TagString: MainCamera
@@ -5435,8 +5436,8 @@ MonoBehaviour:
   - hordeNumber: 3
     bombEnemiesInWave: 0
     timeBetweenBombEnemies: 0.5
-    timeBetweenSpawns: 10
-    timesToSpawn: 6
+    timeBetweenSpawns: 8
+    timesToSpawn: 1
   - hordeNumber: 4
     bombEnemiesInWave: 0
     timeBetweenBombEnemies: 0.5
@@ -5450,23 +5451,43 @@ MonoBehaviour:
   - hordeNumber: 0
     bombEnemiesInWave: 1
     timeBetweenBombEnemies: 0.5
-    timeBetweenSpawns: 9
+    timeBetweenSpawns: 7.5
     timesToSpawn: 2
   - hordeNumber: 0
     bombEnemiesInWave: 3
-    timeBetweenBombEnemies: 2.5
-    timeBetweenSpawns: 7
-    timesToSpawn: 2
+    timeBetweenBombEnemies: 0.5
+    timeBetweenSpawns: 6
+    timesToSpawn: 0
   - hordeNumber: 5
     bombEnemiesInWave: 2
     timeBetweenBombEnemies: 2
-    timeBetweenSpawns: 10
-    timesToSpawn: 8
+    timeBetweenSpawns: 8
+    timesToSpawn: 2
+  - hordeNumber: 5
+    bombEnemiesInWave: 3
+    timeBetweenBombEnemies: 2
+    timeBetweenSpawns: 5
+    timesToSpawn: 2
   - hordeNumber: 8
     bombEnemiesInWave: 4
-    timeBetweenBombEnemies: 3
-    timeBetweenSpawns: 10
-    timesToSpawn: 6
+    timeBetweenBombEnemies: 2
+    timeBetweenSpawns: 6
+    timesToSpawn: 3
+  - hordeNumber: 8
+    bombEnemiesInWave: 8
+    timeBetweenBombEnemies: 0
+    timeBetweenSpawns: 5
+    timesToSpawn: 3
+  - hordeNumber: 6
+    bombEnemiesInWave: 8
+    timeBetweenBombEnemies: 0
+    timeBetweenSpawns: 5
+    timesToSpawn: 5
+  - hordeNumber: 6
+    bombEnemiesInWave: 11
+    timeBetweenBombEnemies: 0.5
+    timeBetweenSpawns: 4
+    timesToSpawn: 3
   currentWave:
     hordeNumber: 0
     bombEnemiesInWave: 0
@@ -5476,6 +5497,21 @@ MonoBehaviour:
   waveCounter: 0
   spawnRadius: 25
   hordeSize: 6
+--- !u!114 &519420036
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519420028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f6091c4b09cd924e8a175f1be88f3cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  RippleMaterial: {fileID: 2100000, guid: e91451f510dae7241a95f07b1b8cef33, type: 2}
+  MaxAmount: 6
+  Friction: 0.94
 --- !u!1 &544883905
 GameObject:
   m_ObjectHideFlags: 0
@@ -21690,6 +21726,112 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1861424609
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1861424611}
+  - component: {fileID: 1861424610}
+  m_Layer: 0
+  m_Name: AudioManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1861424610
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1861424609}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a47cfcb0e12f8224fad442f9ca4febac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioMixer: {fileID: 0}
+  audioOn: 1
+  musicOn: 1
+  managerMixerGroup: {fileID: 0}
+  sounds:
+  - name: ChickenDeath
+    clips:
+    - {fileID: 8300000, guid: 75d76a8ad7a57e54396737eae37dab9a, type: 3}
+    - {fileID: 8300000, guid: 7337572a98dbc6e4ea170ddb121e5fb4, type: 3}
+    - {fileID: 8300000, guid: 795fa9ee24e56f247b5ac888ce4f68a9, type: 3}
+    - {fileID: 8300000, guid: d0ce91424cd97704cb21564afd02fa98, type: 3}
+    volume: 1
+    volumeVariance: 0.2
+    pitch: 1
+    pitchVariance: 0.3
+    loop: 0
+    playOneShot: 0
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  - name: ChickenLand
+    clips:
+    - {fileID: 8300000, guid: e826895ec52c84e43a7fd26e72efe1d1, type: 3}
+    volume: 1
+    volumeVariance: 0
+    pitch: 1
+    pitchVariance: 0.3
+    loop: 0
+    playOneShot: 0
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  - name: ChickenSpawn
+    clips:
+    - {fileID: 8300000, guid: 7446ff4599ca7b44cb28b667f9925a0f, type: 3}
+    volume: 0.6
+    volumeVariance: 0
+    pitch: 1
+    pitchVariance: 0.3
+    loop: 0
+    playOneShot: 0
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  - name: ChickenScream
+    clips:
+    - {fileID: 8300000, guid: abc17165c0877264c9a2a5fdb2946a9e, type: 3}
+    volume: 0.604
+    volumeVariance: 0
+    pitch: 1.37
+    pitchVariance: 0.3
+    loop: 0
+    playOneShot: 0
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  - name: EnemyDeath
+    clips:
+    - {fileID: 8300000, guid: 1d9affe53db0aad40aad48f4255a6cab, type: 3}
+    volume: 1
+    volumeVariance: 0
+    pitch: 1.84
+    pitchVariance: 0.3
+    loop: 0
+    playOneShot: 0
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+--- !u!4 &1861424611
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1861424609}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 5.2109666, y: -22.812187, z: -2.4396696}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 14
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1861931964
 GameObject:
   m_ObjectHideFlags: 0

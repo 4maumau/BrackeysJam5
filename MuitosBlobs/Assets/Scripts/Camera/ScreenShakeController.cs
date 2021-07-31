@@ -31,7 +31,7 @@ public class ScreenShakeController : MonoBehaviour
         }
 
         if (trauma > 0)
-            trauma -= 2f * Time.deltaTime;
+            trauma -= 3f * Time.deltaTime;
         else if (trauma <= 0)
             trauma = 0;
 

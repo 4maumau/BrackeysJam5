@@ -109,9 +109,9 @@ public class EnemySpawner : MonoBehaviour
             else currentWave = waves[waves.Length - 1];
         }
 
-        if (currentWave.timesToSpawn < -5)
+        if (currentWave.timesToSpawn < -4)
         {
-            currentWave.timeBetweenSpawns = 8;
+            currentWave.timeBetweenSpawns = 4;
         }
        
     }

@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour, IPooledObject
 {
-    private CharacterAudio _audio;
 
     [SerializeField] private float speed = 10f;
     [SerializeField] private int  damage = 1;
@@ -22,7 +21,6 @@ public class Bullet : MonoBehaviour, IPooledObject
 
     private void Awake()
     {
-        _audio = GetComponent<CharacterAudio>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         initialSprite = spriteRenderer.sprite;
     }
@@ -31,9 +29,8 @@ public class Bullet : MonoBehaviour, IPooledObject
     public void OnObjectSpawn()
     {
         spriteRenderer.sprite = initialSprite;
-        print("current sprite: " + spriteRenderer.sprite);
+
         Invoke("DeactivateObject", 3f);
-        _audio.PlaySound("Shoot");
 
         notExploded = true;
     }
@@ -71,7 +68,6 @@ public class Bullet : MonoBehaviour, IPooledObject
             LifeManager lifeManager = collision.gameObject.GetComponent<LifeManager>();
             lifeManager.TakeDamage(damage);
 
-            ScreenShakeController.instance.AddTrauma(.1f);
             GameObject explosion = Instantiate(explosionPrefab, transform.position, Quaternion.identity);
             Destroy(explosion, 1);
             notExploded = false;

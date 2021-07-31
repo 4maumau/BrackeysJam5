@@ -8,6 +8,8 @@ public class AudioManager : MonoBehaviour
 	public bool audioOn = true;
 	public bool musicOn = true;
 
+	public static AudioManager instance;
+
 	public AudioMixerGroup managerMixerGroup;
 	
 	Sound s;
@@ -16,10 +18,20 @@ public class AudioManager : MonoBehaviour
 
 	void Awake()
 	{
+		if (instance != null)
+		{
+			Destroy(gameObject);
+		}
+		else
+		{
+			instance = this;
+			DontDestroyOnLoad(gameObject);
+		}
+
 		foreach (Sound s in sounds)
 		{
-			//s.source = gameObject.AddComponent<AudioSource>();
-			//s.source.clip = s.clip;
+			s.source = gameObject.AddComponent<AudioSource>();
+			s.source.clip = s.clips[0];
 			s.source.loop = s.loop;
 
 			s.source.outputAudioMixerGroup = s.mixerGroup;

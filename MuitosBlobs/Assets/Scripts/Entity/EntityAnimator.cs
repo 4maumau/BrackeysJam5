@@ -38,6 +38,7 @@ public class EntityAnimator : MonoBehaviour
 
     public void DoSqueeze(float xSqueeze, float ySqueeze, float seconds)
     {
+        print("called");
         StartCoroutine(JumpSqueeze(xSqueeze, ySqueeze, seconds));
     }
 

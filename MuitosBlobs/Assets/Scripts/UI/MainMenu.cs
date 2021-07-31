@@ -23,7 +23,6 @@ public class MainMenu : MonoBehaviour
             PlayerPrefs.SetString("ShootingMode", "Auto");
         }
 
-        UpdateShootingMode();
     }
 
    
@@ -37,19 +36,7 @@ public class MainMenu : MonoBehaviour
         SceneManager.LoadScene(1);
     }
 
-    private void UpdateShootingMode()
-    {
-        if (PlayerPrefs.GetString("ShootingMode") == "Auto")
-        {
-            shootingModeTXT.text = "Auto";
-            tipTXT.text = "(Recommended)";
-        }
-        else
-        {
-            shootingModeTXT.text = "Manual";
-            tipTXT.text = "(Hardcore)";
-        }
-    }
+   
 
     public void ChangeShootingMode()
     {
@@ -62,6 +49,5 @@ public class MainMenu : MonoBehaviour
             PlayerPrefs.SetString("ShootingMode", "Auto");
         }
 
-        UpdateShootingMode();
     }
 }

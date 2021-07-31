@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 8817037517942918896}
   - component: {fileID: 1855308677142394703}
   - component: {fileID: 3162570455501489153}
-  - component: {fileID: 9191516360519819521}
   - component: {fileID: 3168213411531871911}
   m_Layer: 8
   m_Name: EnemyBullet
@@ -117,35 +116,6 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.4
---- !u!114 &9191516360519819521
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9140355319789542583}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fa8255e75e28b3441a391f9717aa79f8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  audioOn: 1
-  musicOn: 1
-  sounds:
-  - name: Shoot
-    clips:
-    - {fileID: 8300000, guid: 74631c14c51e55743b3faa522026a25e, type: 3}
-    - {fileID: 8300000, guid: 517d00bf3f5b2754d9cef6cbe80b72da, type: 3}
-    - {fileID: 8300000, guid: 173508f3623ba4e43a834dbcbf142e3d, type: 3}
-    - {fileID: 8300000, guid: d9c49c799e051e14ea70c43dfe312b4b, type: 3}
-    volume: 0
-    volumeVariance: 0
-    pitch: 1
-    pitchVariance: 0
-    loop: 0
-    playOneShot: 0
-    mixerGroup: {fileID: 0}
-    source: {fileID: 0}
 --- !u!95 &3168213411531871911
 Animator:
   serializedVersion: 3
@@ -156,7 +126,7 @@ Animator:
   m_GameObject: {fileID: 9140355319789542583}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 693a99168a6b41748a8d6ceab46378e0, type: 2}
+  m_Controller: {fileID: 0}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

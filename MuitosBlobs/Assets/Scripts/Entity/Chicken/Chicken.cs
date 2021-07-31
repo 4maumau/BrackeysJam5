@@ -25,12 +25,10 @@ public class Chicken : MonoBehaviour
 
     public bool isGrounded = true;
 
-    [SerializeField]private CharacterAudio chickenAudio;
     private LifeManager lifeManager;
 
     private ParticleSystem groundHitParticle;
-
-    
+        
 
     private void Start()
     {
@@ -44,10 +42,10 @@ public class Chicken : MonoBehaviour
         groundHitParticle = GetComponentInChildren<ParticleSystem>();
 
         GameManager.instance.NewChicken();
+        AudioManager.instance.PlaySound("ChickenSpawn");
 
         SetShootingMode();
 
-        chickenAudio.PlaySound("Spawn");
     }
 
     private void Update()
@@ -74,7 +72,7 @@ public class Chicken : MonoBehaviour
 
     void MouseJump()
     {
-        if (Input.GetMouseButton(1))
+        if (Input.GetMouseButton(0))
         {
             JumpCall(Input.mousePosition);
         }
@@ -137,25 +135,21 @@ public class Chicken : MonoBehaviour
             isGrounded = true;
             ScreenShakeController.instance.AddTrauma(0.005f);
 
+            AudioManager.instance.PlaySound("ChickenLand");
             animator.Play("ChickenGroundHit");
             groundHitParticle.Emit(1);
 
-            chickenAudio.PlaySound("Land");
         }
     }
 
     void SetShootingMode()
     {
-        if (PlayerPrefs.GetString("ShootingMode") == "Auto")
-        {
-            GetComponent<Shooting>().enabled = true;
-            GetComponent<ChickenShooting>().enabled = false;
-        }
-        else
-        {
-            GetComponent<Shooting>().enabled = false;
-            GetComponent<ChickenShooting>().enabled = true;
-        }
+        //if (PlayerPrefs.GetString("ShootingMode") == "Auto")
+        //{
+        GetComponent<Shooting>().enabled = true;
+        GetComponent<ChickenShooting>().enabled = false;
+        //}
+        
     }
 
     

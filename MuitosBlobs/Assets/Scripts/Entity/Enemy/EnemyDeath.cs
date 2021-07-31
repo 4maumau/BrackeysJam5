@@ -6,7 +6,6 @@ using UnityEngine;
 public class EnemyDeath : MonoBehaviour
 {
     private Animator animator;
-    private CharacterAudio _audio;
     private EnemyFollow enemyFollow;
     [SerializeField] private GameObject dropPrefab;
     [SerializeField] private string deathAnimation = "DinoDeath";
@@ -15,16 +14,17 @@ public class EnemyDeath : MonoBehaviour
     private void Start()
     {
         animator = GetComponent<Animator>();
-        _audio = GetComponentInParent<CharacterAudio>();
         enemyFollow = GetComponentInParent<EnemyFollow>();
     }
 
     public void OnDeath()
     {
         animator.Play(deathAnimation);
+        ScreenShakeController.instance.AddTrauma(.08f);
+
         if (enemyFollow.isAlive)
         {
-            _audio.PlaySound("Death");
+            AudioManager.instance.PlaySound("EnemyDeath");
             enemyFollow.isAlive = false;
         }
 
