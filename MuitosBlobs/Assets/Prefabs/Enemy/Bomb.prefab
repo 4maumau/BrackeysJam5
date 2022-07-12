@@ -126,6 +126,8 @@ MonoBehaviour:
   dropGoldenEgg: 1
   goldenEggPrefab: {fileID: 2315449468378975421, guid: 7f3712ec985d45241832633ca12bcdaa,
     type: 3}
+  craterPrefab: {fileID: 7417905903502945557, guid: af9a1d3c3369379479fd42fe0ccc65a4,
+    type: 3}
 --- !u!114 &8762280617283370552
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -26,6 +26,7 @@ public class Bomb : MonoBehaviour
     private bool hasExploded = false;
     public bool dropGoldenEgg = true;
     [SerializeField] private GameObject goldenEggPrefab;
+    [SerializeField] private GameObject craterPrefab;
 
     private void Awake()
     {
@@ -60,6 +61,8 @@ public class Bomb : MonoBehaviour
         particles.EmitParticles();
         ScreenShakeController.instance.AddTrauma(screenShakePower);
         cameraRipple.RippleEffect(transform.position);
+        int randomRotation = Random.Range(0, 360);
+        Instantiate(craterPrefab, transform.position, Quaternion.Euler(0, 0, randomRotation));
 
         animator.Play("BombExplosion");
         ExplodeAudio();
