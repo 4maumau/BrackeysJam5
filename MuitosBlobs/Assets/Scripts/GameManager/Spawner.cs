@@ -15,7 +15,7 @@ public class Spawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Q))
+        /*if (Input.GetKeyDown(KeyCode.Q))
         {
             Instantiate(entityPrefabs[0], enemySpawner.GetSpawnPosition(), Quaternion.identity);
         }
@@ -25,6 +25,7 @@ public class Spawner : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.E))
             Instantiate(entityPrefabs[2], enemySpawner.GetSpawnPosition(), Quaternion.identity);
+        */
     }
 
  

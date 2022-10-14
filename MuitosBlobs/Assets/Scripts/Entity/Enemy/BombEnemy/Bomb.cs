@@ -44,9 +44,7 @@ public class Bomb : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.P))
-            Explode();
-
+        
         countdown -= Time.deltaTime;
         if (countdown <= 0f && !hasExploded)
         {
@@ -62,7 +60,8 @@ public class Bomb : MonoBehaviour
         ScreenShakeController.instance.AddTrauma(screenShakePower);
         cameraRipple.RippleEffect(transform.position);
         int randomRotation = Random.Range(0, 360);
-        Instantiate(craterPrefab, transform.position, Quaternion.Euler(0, 0, randomRotation));
+        GameObject crater = Instantiate(craterPrefab, transform.position, Quaternion.Euler(0, 0, randomRotation));
+        Destroy(crater, 30f);
 
         animator.Play("BombExplosion");
         ExplodeAudio();
